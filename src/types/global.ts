@@ -23,4 +23,4 @@ export type StationsEndPointQuery = {
   distance?: string;
 };
 
-export type StationsEndPointResponse = Array<Station & { distance?: number }>;
+export type StationsEndPointResponse = Array<Station & { distance: number }>;
