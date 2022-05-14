@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 loadStations();
-app.use("/api/v1", Router);
+app.use("/api", Router);
 
 const server = app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

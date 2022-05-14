@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "vercel-local": "vercel dev",
+    "deploy": "vercel deploy --prod",
     "build": "tsc",
     "test": "jest"
   },

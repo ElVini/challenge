@@ -16,7 +16,7 @@ describe("API responde adecuadamente a los parámetros solicitados", () => {
     let stationOutOfBounds = false;
     const maxDistance = 80;
     const res = await expressApp.get(
-      `/api/v1/stations?latitude=20.66606507797593&longitude=-103.34860877726219&distance=${maxDistance}`
+      `/api/stations?latitude=20.66606507797593&longitude=-103.34860877726219&distance=${maxDistance}`
     );
 
     const { stations }: { stations: StationsEndPointResponse } = res.body;
@@ -31,7 +31,7 @@ describe("API responde adecuadamente a los parámetros solicitados", () => {
   });
   test("API responde con información vacía", async () => {
     const res = await expressApp.get(
-      "/api/v1/stations?latitude=20.66606507797593&longitude=-103.34860877726219&distance=0"
+      "/api/stations?latitude=20.66606507797593&longitude=-103.34860877726219&distance=0"
     );
 
     const { stations }: { stations: StationsEndPointResponse } = res.body;
