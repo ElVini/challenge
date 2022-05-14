@@ -1,13 +1,11 @@
 import request from "supertest";
 
 import { StationsEndPointResponse } from "../types";
-import server from "../index";
+import app from "../api/index";
 
-const expressApp = request(server);
+const expressApp = request(app);
 
 afterAll((done) => {
-  server.close();
-
   done();
 });
 

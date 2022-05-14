@@ -1,4 +1,4 @@
-import { Station } from "types";
+import { Station } from "../types";
 
 const toRad = (x: number): number => x * (Math.PI / 180);
 

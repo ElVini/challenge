@@ -6,7 +6,6 @@
   "scripts": {
     "vercel-local": "vercel dev",
     "deploy": "vercel deploy --prod",
-    "build": "tsc",
     "test": "jest"
   },
   "keywords": [],
