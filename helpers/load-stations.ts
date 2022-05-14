@@ -14,7 +14,7 @@ const stations: Array<Station> = [];
  */
 const loadStations = (): Promise<Station[]> => {
   return new Promise((resolve, reject) => {
-    fs.createReadStream("stations.csv")
+    fs.createReadStream("../stations.csv")
       .pipe(parser())
       .on("data", (data: RawStation) =>
         stations.push({
