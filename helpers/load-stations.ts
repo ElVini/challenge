@@ -1,5 +1,6 @@
 import parser from "csv-parser";
 import fs from "fs";
+import { join } from "path";
 
 import { Station, RawStation } from "../types";
 
@@ -14,7 +15,7 @@ const stations: Array<Station> = [];
  */
 const loadStations = (): Promise<Station[]> => {
   return new Promise((resolve, reject) => {
-    fs.createReadStream("../stations.csv")
+    fs.createReadStream(join(__dirname, "_files", "stations.csv"))
       .pipe(parser())
       .on("data", (data: RawStation) =>
         stations.push({
