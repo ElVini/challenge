@@ -1,7 +1,9 @@
 import express, { Request, Response } from "express";
+import mongoose from "mongoose";
 
 import { StationsEndPointResponse, StationsEndPointQuery } from "../types";
-import { loadStations, calculateDistance } from "../helpers";
+import { StationSchema } from "../schemas";
+import { calculateDistance } from "../helpers";
 
 const app = express();
 
@@ -12,7 +14,10 @@ app.get(
     res: Response
   ) => {
     try {
-      const stations = await loadStations();
+      await mongoose.connect(
+        "mongodb+srv://mibici:Admin1.@cluster0.awdkr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+      );
+      const stations = await StationSchema.find().exec();
       if (req.query.latitude && req.query.longitude) {
         const distance = Number(req.query.distance);
         const stationsResponse: StationsEndPointResponse = [];
@@ -44,6 +49,8 @@ app.get(
       }
     } catch (err) {
       res.status(500).send("INTERNAL_ERROR");
+    } finally {
+      mongoose.connection.close();
     }
   }
 );
