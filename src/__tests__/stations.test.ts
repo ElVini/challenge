@@ -1,7 +1,7 @@
 import request from "supertest";
 
 import { StationsEndPointResponse } from "../types";
-import { server } from "../index";
+import server from "../index";
 
 const expressApp = request(server);
 
